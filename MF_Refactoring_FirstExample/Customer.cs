@@ -33,11 +33,6 @@ namespace MF_Refactoring_FirstExample
             string result = "Rental Record for " + Name + "\n";
             foreach (var each in rentals)
             {
-                double thisAmount = 0;
-
-                // Calculate amount one by one
-                thisAmount = AmountFor(each);
-
                 // Add rental points
                 frequentRenterPoints++;
                 // Give bonus points if rented "new release" over two days
@@ -49,8 +44,8 @@ namespace MF_Refactoring_FirstExample
 
                 // Display numbers about this rental
                 result += "\t" + each.Movie.Title + "\t" +
-                    thisAmount.ToString() + "\n";
-                totalAmount += thisAmount;
+                    each.GetCharge().ToString() + "\n";
+                totalAmount += each.GetCharge();
 
             }
             // Add footer
@@ -62,30 +57,7 @@ namespace MF_Refactoring_FirstExample
 
         private double AmountFor(Rental rental)
         {
-            double result = 0;
-
-            switch (rental.Movie.PriceCode)
-            {
-                case Movie.Regular:
-                    result += 2;
-                    if (rental.DaysRented > 2)
-                    {
-                        result += (rental.DaysRented - 2) * 1.5;
-                    }
-                    break;
-                case Movie.NewRelease:
-                    result += rental.DaysRented * 3;
-                    break;
-                case Movie.Childrens:
-                    result += 1.5;
-                    if (rental.DaysRented > 3)
-                    {
-                        result += (rental.DaysRented - 3) * 1.5;
-                    }
-                    break;
-            }
-
-            return result;
+            return rental.GetCharge();
         }
     }
 }
