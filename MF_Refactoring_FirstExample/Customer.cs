@@ -36,26 +36,7 @@ namespace MF_Refactoring_FirstExample
                 double thisAmount = 0;
 
                 // Calculate amount one by one
-                switch(each.Movie.PriceCode)
-                {
-                    case Movie.Regular:
-                        thisAmount += 2;
-                        if (each.DaysRented > 2)
-                        {
-                            thisAmount += (each.DaysRented - 2) * 1.5;
-                        }
-                        break;
-                    case Movie.NewRelease:
-                        thisAmount += each.DaysRented * 3;
-                        break;
-                    case Movie.Childrens:
-                        thisAmount += 1.5;
-                        if (each.DaysRented > 3)
-                        {
-                            thisAmount += (each.DaysRented - 3) * 1.5;
-                        }
-                        break;
-                }
+                thisAmount = AmountFor(each);
 
                 // Add rental points
                 frequentRenterPoints++;
@@ -77,7 +58,34 @@ namespace MF_Refactoring_FirstExample
             result += "You earned " + frequentRenterPoints.ToString() +
                 " frequent renter points";
             return result;
+        }
 
+        private double AmountFor(Rental rental)
+        {
+            double result = 0;
+
+            switch (rental.Movie.PriceCode)
+            {
+                case Movie.Regular:
+                    result += 2;
+                    if (rental.DaysRented > 2)
+                    {
+                        result += (rental.DaysRented - 2) * 1.5;
+                    }
+                    break;
+                case Movie.NewRelease:
+                    result += rental.DaysRented * 3;
+                    break;
+                case Movie.Childrens:
+                    result += 1.5;
+                    if (rental.DaysRented > 3)
+                    {
+                        result += (rental.DaysRented - 3) * 1.5;
+                    }
+                    break;
+            }
+
+            return result;
         }
     }
 }
