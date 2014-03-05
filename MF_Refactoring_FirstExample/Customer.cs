@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MF_Refactoring_FirstExample
 {
-    class Customer
+    public class Customer
     {
         private string name;
         private List<Rental> rentals = new List<Rental>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MF_Refactoring_FirstExample
 {
-    class Movie
+    public class Movie
     {        
         public const int Childrens = 2;
         public const int Regular = 0;
