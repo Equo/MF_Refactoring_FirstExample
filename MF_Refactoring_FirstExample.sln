@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_Refactoring_FirstExample", "MF_Refactoring_FirstExample\MF_Refactoring_FirstExample.csproj", "{D9AD7B09-8CD2-4A77-BD9E-7CDFE09D51B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F1BA7D7B-D7D4-4D8B-A971-B6A6C9B9A48E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D9AD7B09-8CD2-4A77-BD9E-7CDFE09D51B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9AD7B09-8CD2-4A77-BD9E-7CDFE09D51B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9AD7B09-8CD2-4A77-BD9E-7CDFE09D51B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1BA7D7B-D7D4-4D8B-A971-B6A6C9B9A48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BA7D7B-D7D4-4D8B-A971-B6A6C9B9A48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BA7D7B-D7D4-4D8B-A971-B6A6C9B9A48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BA7D7B-D7D4-4D8B-A971-B6A6C9B9A48E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
