@@ -14,7 +14,7 @@ namespace FirstExampleTests
             string expectedTitle = "title";
 
             // act
-            var movie = new Movie(expectedTitle, 0);
+            var movie = new Movie(expectedTitle, Movie.Regular);
             string actualTitle = movie.Title;
 
             // assert
@@ -39,7 +39,7 @@ namespace FirstExampleTests
         public void PriceCodeSetter_Getter()
         {
             // arrange
-            var movie = new Movie(string.Empty, 0);
+            var movie = new Movie(string.Empty, Movie.Regular);
             int expectedPriceCode = 1;
 
             // act

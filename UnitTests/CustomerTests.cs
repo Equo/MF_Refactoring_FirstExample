@@ -25,7 +25,7 @@ namespace FirstExampleTests
         public void AddRental()
         {
             // arrange
-            var movie = new Movie(string.Empty, 0);
+            var movie = new Movie(string.Empty, Movie.Regular);
             var rental = new Rental(movie, 1);
             var customer = new Customer("equo");
             

@@ -11,7 +11,7 @@ namespace FirstExampleTests
         public void RentalCtor_DaysRentedGetter()
         {
             // arrange
-            var movie = new Movie(string.Empty, 0);
+            var movie = new Movie(string.Empty, Movie.Regular);
             int expectedDaysRented = 1;
 
             // act
@@ -26,7 +26,7 @@ namespace FirstExampleTests
         public void RentalCtor_MovieGetter()
         {
             // arrange
-            var expectedMovie = new Movie(string.Empty, 0);
+            var expectedMovie = new Movie(string.Empty, Movie.Regular);
 
             // act
             var rental = new Rental(expectedMovie, 0);
