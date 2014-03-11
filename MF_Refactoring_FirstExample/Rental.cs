@@ -54,5 +54,19 @@ namespace MF_Refactoring_FirstExample
 
             return result;
         }
+
+        public int GetFrequentRenterPoints()
+        {
+            // Give bonus points if rented "new release" over two days
+            if (Movie.PriceCode == Movie.NewRelease && 
+                DaysRented > 1)
+            {
+                return 2;
+            }
+            else
+            {
+                return 1;
+            }
+        }
     }
 }

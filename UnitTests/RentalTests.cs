@@ -35,5 +35,50 @@ namespace FirstExampleTests
             // assert
             Assert.AreEqual<Movie>(expectedMovie, actualMovie);
         }
+
+        [TestMethod]
+        public void GetFrequentRenterPoint_NewReleaseMoreThan1Days()
+        {
+            // arrange
+            var movie = new Movie(string.Empty, Movie.NewRelease);
+            var rental = new Rental(movie, 2);
+            int expectedFrequentRenterPoints = 2;
+
+            // act
+            int actualFrequentRenterPoints = rental.GetFrequentRenterPoints();
+
+            // assert
+            Assert.AreEqual<int>(expectedFrequentRenterPoints, actualFrequentRenterPoints);
+        }
+
+        [TestMethod]
+        public void GetFrequentRenterPoint_NewReleaseLessOrEqual1Days()
+        {
+            // arrange
+            var movie = new Movie(string.Empty, Movie.NewRelease);
+            var rental = new Rental(movie, 1);
+            int expectedFrequentRenterPoints = 1;
+
+            // act
+            int actualFrequentRenterPoints = rental.GetFrequentRenterPoints();
+
+            // assert
+            Assert.AreEqual<int>(expectedFrequentRenterPoints, actualFrequentRenterPoints);
+        }
+
+        [TestMethod]
+        public void GetFrequentRenterPoint_RegularMoreThan1Days()
+        {
+            // arrange
+            var movie = new Movie(string.Empty, Movie.Regular);
+            var rental = new Rental(movie, 2);
+            int expectedFrequentRenterPoints = 1;
+
+            // act
+            int actualFrequentRenterPoints = rental.GetFrequentRenterPoints();
+
+            // assert
+            Assert.AreEqual<int>(expectedFrequentRenterPoints, actualFrequentRenterPoints);
+        }
     }
 }

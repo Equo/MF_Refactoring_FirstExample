@@ -34,13 +34,7 @@ namespace MF_Refactoring_FirstExample
             foreach (var each in rentals)
             {
                 // Add rental points
-                frequentRenterPoints++;
-                // Give bonus points if rented "new release" over two days
-                if ((each.Movie.PriceCode == Movie.NewRelease) &&
-                    each.DaysRented > 1)
-                {
-                    frequentRenterPoints++;
-                }
+                frequentRenterPoints += each.GetFrequentRenterPoints();
 
                 // Display numbers about this rental
                 result += "\t" + each.Movie.Title + "\t" +
