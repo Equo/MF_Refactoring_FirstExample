@@ -28,30 +28,59 @@ namespace MF_Refactoring_FirstExample
 
         public string Statement()
         {
-            double totalAmount = 0;
-            int frequentRenterPoints = 0;
             string result = "Rental Record for " + Name + "\n";
             foreach (var each in rentals)
             {
-                // Add rental points
-                frequentRenterPoints += each.GetFrequentRenterPoints();
-
                 // Display numbers about this rental
                 result += "\t" + each.Movie.Title + "\t" +
                     each.GetCharge().ToString() + "\n";
-                totalAmount += each.GetCharge();
-
             }
             // Add footer
-            result += "Amount owed is " + totalAmount.ToString() + "\n";
-            result += "You earned " + frequentRenterPoints.ToString() +
+            result += "Amount owed is " + GetTotalCharge().ToString() + "\n";
+            result += "You earned " + GetTotalFrequentRenterPoints().ToString() +
                 " frequent renter points";
+            return result;
+        }
+
+        public string HtmlStatement()
+        {
+            string result = "<h1>Rentals for <em>" + Name + "</em></h1><p>\n";
+            foreach (var each in rentals)
+            {
+                // Display numbers about this rental
+                result += each.Movie.Title + ": " +
+                    each.GetCharge().ToString() + "<br>\n";
+            }
+            // Add footer
+            result += "<p>You owe <em>" + GetTotalCharge().ToString() + "</em><p>\n";
+            result += "On this rental you earned <em>" + GetTotalFrequentRenterPoints().ToString() +
+                "</em> frequent renter points<p>";
             return result;
         }
 
         private double AmountFor(Rental rental)
         {
             return rental.GetCharge();
+        }
+
+        private double GetTotalCharge()
+        {
+            double result = 0;
+            foreach (var each in rentals)
+            {
+                result += each.GetCharge();
+            }
+            return result;
+        }
+
+        private int GetTotalFrequentRenterPoints()
+        {
+            int result = 0;
+            foreach (var each in rentals)
+            {
+                result += each.GetFrequentRenterPoints();
+            }
+            return result;
         }
     }
 }
